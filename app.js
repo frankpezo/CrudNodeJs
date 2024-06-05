@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 
-use.set('view engine', 'ejs'); //Para poder utilizar la plantilla 
+app.set('view engine', 'ejs'); //Para poder utilizar la plantilla 
 
 
 
