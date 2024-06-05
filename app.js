@@ -4,11 +4,11 @@ const app = express();
 
 app.set('view engine', 'ejs'); //Para poder utilizar la plantilla 
 
+//Importamos el router y env
+const router = require('./router.js');
+app.use('/', router);
 
 
-app.get('/', (req, res) => {
-    res.send('Página principal')
-});
 
 
 PORT = process.env.PORT || 3000;
