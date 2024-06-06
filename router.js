@@ -20,5 +20,17 @@ router.get('/', (req, res) => {
 });
 
 
+//Para realiar el registros
+router.get('/create', (req, res) => {
+    res.render('create')
+
+});
+
+//Invocamos el método del crud para poder hacer el registro
+const crud = require('./controllers/crud.js');
+router.post('/save', crud.save);
+
+
+
 //Lo exportamos 
 module.exports = router;

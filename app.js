@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 
 app.set('view engine', 'ejs'); //Para poder utilizar la plantilla 
+app.use(express.urlencoded({ extended: false })); //Para poder capturar los datos del formulario
+app.use(express.json());
 
 app.use('/recursos', express.static('public'));
 app.use('/recursos', express.static(__dirname + '/public'))
