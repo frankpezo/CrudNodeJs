@@ -4,6 +4,9 @@ const app = express();
 
 app.set('view engine', 'ejs'); //Para poder utilizar la plantilla 
 
+app.use('/recursos', express.static('public'));
+app.use('/recursos', express.static(__dirname + '/public'))
+
 //Importamos el router y env
 const router = require('./router.js');
 app.use('/', router);

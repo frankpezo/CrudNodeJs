@@ -10,8 +10,14 @@ const conexion = require('./database/database.js');
 
 //Rutas 
 router.get('/', (req, res) => {
-    res.send('Página principal');
-})
+    conexion.query('SELECT * FROM users', (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render('index', { results: results })
+        }
+    });
+});
 
 
 //Lo exportamos 

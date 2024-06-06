@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="recursos/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--navbar--->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!--Para crear la tabla-->
+    <div class="container">
+        <a href="/create" class="btn btn-outline-primary mt-4"><svg class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none"
+                viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg> </a>
+        <!--- Tabla-->
+        <table class="table table-bordered table-striped text-center mt-4">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th scope="col">ID</th>
+                    <th scope="col">USUARIO</th>
+                    <th scope="col">ROL</th>
+                    <th scope="col">ACCIOINES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach(user=> { %>
+                    <tr>
+                        <td>
+                            <%= user.id%>
+                        </td>
+                        <td>
+                            <%= user.nombre %>
+                        </td>
+                        <td>
+                            <%= user.rol%>
+                        </td>
+                        <td>
+                            <a href="/edit" class="btn btn-outline-info">editar</a>
+                            <a href="/delete" class="btn btn-outline-danger">eliminar</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+
+        </table>
+    </div>
+
+    <script src="recursos/js/bootstrap.bundle.min.js">
+    </script>
+</body>
+
+</html>
