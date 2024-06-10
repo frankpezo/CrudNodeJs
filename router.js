@@ -37,6 +37,17 @@ router.get('/edit/:id', (req, res) => {
     })
 })
 
+router.get('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM users WHERE id=?', [id], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.redirect('/');
+        }
+    });
+});
+
 //Invocamos el método del crud para poder hacer el registro
 const crud = require('./controllers/crud.js');
 router.post('/save', crud.save);
