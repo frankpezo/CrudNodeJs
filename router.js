@@ -26,6 +26,17 @@ router.get('/create', (req, res) => {
 
 });
 
+router.get('/edit/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('SELECT * FROM users WHERE id=?', [id], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render('edit', { user: results[0] });
+        }
+    })
+})
+
 //Invocamos el método del crud para poder hacer el registro
 const crud = require('./controllers/crud.js');
 router.post('/save', crud.save);
