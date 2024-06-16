@@ -19,6 +19,18 @@ router.get('/', (req, res) => {
     });
 });
 
+//Json
+router.get('/data', (req, res) => {
+    conexion.query('SELECT * FROM users', (error, results) => {
+        if (error) {
+            throw error
+        } else {
+            data = JSON.stringify(results);
+            res.send(data);
+        }
+    });
+});
+
 
 //Para realiar el registros
 router.get('/create', (req, res) => {
